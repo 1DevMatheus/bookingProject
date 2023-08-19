@@ -6,8 +6,18 @@ const collaborator = new Schema({
     type: String,
     required: [true, "name is require"],
   },
-  photo: String,
-  cape: String,
+  photo: {
+    type: String,
+    required: true,
+  },
+  telephone: {
+    type: String,
+    required: false,
+  },
+  cape: {
+    type: String,
+    required: false,
+  },
   email: {
     type: String,
     required: [true, "email is require"],
@@ -17,60 +27,58 @@ const collaborator = new Schema({
     required: [true, "password is require"],
   },
   dateBirth: {
-   type String,
-   require: true
+    type: String,
+    required: true,
   },
   gender: {
-   type: String,
-   require: false
+    type: String,
+    required: false,
   },
   status: {
-   type: String,
-   require: true,
-   enum: ['A', 'I'],
-   default: 'A'
+    type: String,
+    required: true,
+    enum: ["A", "I"],
+    default: "A",
   },
-  bankAccount:{
-   owner: {
+  bankAccount: {
+    owner: {
+      type: String,
+      required: true,
+    },
+    cpfCnpj: {
+      type: String,
+      required: true,
+    },
+    bank: {
+      type: String,
+      required: true,
+    },
+    accounttype: {
+      type: String,
+      required: true,
+    },
+    agency: {
+      type: String,
+      required: true,
+    },
+    accountNumber: {
+      type: String,
+      required: true,
+    },
+    digit: {
+      type: String,
+      required: true,
+    },
+  },
+  recipientId: {
     type: String,
-    require: true,
-   },
-   cpfCnpj{
-    type: String,
-    require: true
-   },
-   bank:{
-     type: String,
-    require: true
-   },
-   accounttype:{
-    type: String,
-    require; true
-   },
-   agency: {
-    type; String,
-    require: true
-   },
-   accountNumber: {
-    type: String,
-    require: true
-   },
-   digit: {
-    type: String,
-    require; true
-   },
-   recipientId: {
-    type: String,
-    require: true
-   },
-    dataRegister: {
+    required: true,
+  },
+  dataRegister: {
     type: Date,
     default: Date.now,
   },
-
-
-  }
- });
+});
 
 store.index({ geo: "2dsphere" });
 

@@ -23,6 +23,7 @@ const store = new Schema({
     postalcode: String,
     number: String,
     contry: String,
+    required: true,
   },
   geo: {
     type: String,
